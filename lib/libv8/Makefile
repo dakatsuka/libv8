@@ -13,6 +13,8 @@ debug: $(LIBV8_G)
 	cp $(LIBV8_G) $(LIBV8)
 
 $(LIBV8): $(SCONS) $(V8SRC)
+	cp -R build/scons/script build/scons/install/bin
+	chmod +x build/scons/install/bin/scons
 	cd build/v8 && GCC_VERSION=$(GCC_VERSION) ../scons/install/bin/scons arch=$(ARCH)
 
 $(LIBV8_G): $(SCONS) $(V8SRC)
